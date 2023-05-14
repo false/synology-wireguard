@@ -1,7 +1,7 @@
 #!/bin/bash
 source /pkgscripts-ng/include/pkg_util.sh
 
-package="WireGuard"
+package="WireGuard-$DSM_VER"
 version="$WIREGUARD_VERSION"
 displayname="WireGuard"
 os_min_ver="OS_MIN_VER"
