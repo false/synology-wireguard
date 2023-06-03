@@ -16,7 +16,6 @@ recover the data, this might not be for you.
 
 FAQ/Known issues
 ----------------
-* The releases in the releases page are for DSM 6 only. For DSM7, you'll need to follow the instructions in this readme and compile it yourself.
 * The ``Dns = x.x.x.x`` setting is unsupported. If you try it you will get the
   following message:
   ``/usr/local/bin/wg-quick: line 31: resolvconf: command not found``
@@ -41,7 +40,6 @@ Compatibility list
 All models marked *Is working* have been confirmed by users to work. If your
 model has the same platform as one of the working ones, chances are it will
 work for you too.
-**Note**: the releases in the releases page are for DSM 6 only. For DSM7, you'll need to follow the instructions in this readme and compile it yourself.
 
 =========== ========== =========== ===========================
 Model       Platform   DSM Version Is working?
@@ -68,13 +66,15 @@ DS220+      geminilake 6.2/7.0     Yes
 DS3617xs    broadwell  6.2         Yes
 DS414slim   armada370  *N/A*       No (Kernel version too old)
 DS415+      avoton     6.2         Yes
+DS418j      rtd1296    6.2/7.0     Yes
 DS418play   apollolake 6.2         Yes
 DS713+      cedarview  6.2         Yes
 DS716+II    braswell   6.2         Yes
 DS718+      apollolake 6.2         Yes
 DS720+      geminilake 7.0         Yes
-DS916+      braswell   6.2         Yes
+DS916+      braswell   6.2/7.0     Yes
 DS918+      apollolake 6.2         Yes
+RS1221+     v1000      7.0         Yes
 RS214       armada370  *N/A*       No (Kernel version too old)
 RS816       armada38x  6.2         Yes
 Virtual DSM kvmx64     6.2/7.0     Yes
@@ -185,6 +185,7 @@ For the DS218j that I have, the complete command looks like this:
 
 .. code-block:: bash
 
+    mkdir $(pwd)/artifacts
     sudo docker run --rm --privileged --env PACKAGE_ARCH=armada38x --env DSM_VER=6.2 -v $(pwd)/artifacts:/result_spk synobuild
 
 If everything worked you should have a directory called ``artifacts`` that

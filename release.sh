@@ -13,7 +13,9 @@ ARCHS=(
     "geminilake"
     "kvmx64"
     "monaco"
+    "r1000"
     "rtd1296"
+    "rtd1619b"
     "x64"
 )
 
