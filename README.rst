@@ -36,7 +36,7 @@ PRs that solve these issues are welcome.
 
 Installation
 ------------
-1. Check the `releases <https://github.com/runfalk/synology-wireguard/releases>`_
+1. Check the `releases <https://github.com/AuxXxilium/synology-wireguard/releases>`_
    page for SPKs for your platform and DSM version. If there is no SPK you have to compile it
    yourself using the instruction below.
 
