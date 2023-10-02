@@ -84,6 +84,16 @@ if [ ! -d "$build_env" ]; then
         pkgscripts-ng/EnvDeploy -p $PACKAGE_ARCH -v $DSM_VER
     fi
 
+	if [ -f "$build_env/usr/local/x86_64-pc-linux-gnu/x86_64-pc-linux-gnu/sys-root/usr/lib/modules/DSM-$DSM_VER/build/include/linux/siphash.h" ]; then
+		echo "[i] Existing include linux/siphash.h -> rm"
+
+		# Solution 1 : rm the synology siphash header so wireguard will be built using the 'built-in' compat siphash version wireguard compat sources    
+	    rm "$build_env/usr/local/x86_64-pc-linux-gnu/x86_64-pc-linux-gnu/sys-root/usr/lib/modules/DSM-$DSM_VER/build/include/linux/siphash.h"
+	    
+		# Solution 2 :
+	    # cp "$package_dir/template/avoton/siphash.h" "$build_env/usr/local/x86_64-pc-linux-gnu/x86_64-pc-linux-gnu/sys-root/usr/lib/modules/DSM-7.2/build/include/linux/"
+	fi
+    
     # Ensure the installed toolchain has support for CA signed certificates.
     # Without this wget on https:// will fail
     cp /etc/ssl/certs/ca-certificates.crt "$build_env/etc/ssl/certs/"
